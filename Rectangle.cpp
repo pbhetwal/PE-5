@@ -7,31 +7,31 @@ programming exercise five.
 */
 
 /**
-    Bugs that we found in the original Rectangle.o file:
+	Bugs that we found in the original Rectangle.o file:
 
-    Rectangle(Point p1, Point p2) - Doesn't check to 
-    make sure p1 is passed in as bottom left 
-    and p2 is passed in as top right. 
-    
-    GetWidth() - Doesn't give absolute value 
-    of differences. 
-    
-    GetHeight()- Doesn't give absolute value 
-    of differences. 
-    
-    Overlaps() - Doesn't report true if 
-    overlapping method call is switched for two 
-    overlapping objects. Ex) r1.OverLaps(r2)
-    must equal r2.OverLaps(r1)
-    
-    CalculateArea() - Reports negative area with 
-    points that have negative values. 
-    
-    Expand() - Due to mentioned constructor error, 
-    doesn't expand correctly sometimes. 
-    
-    Shrink() - Due to mentioned constructor error, 
-    doesn't shrink correctly sometimes. 
+	Rectangle(Point p1, Point p2) - Doesn't check to 
+	make sure p1 is passed in as bottom left 
+	and p2 is passed in as top right. 
+
+	GetWidth() - Doesn't give absolute value 
+	of differences. 
+
+	GetHeight()- Doesn't give absolute value 
+	of differences. 
+
+	Overlaps() - Doesn't report true if 
+	overlapping method call is switched for two 
+	overlapping objects. Ex) r1.OverLaps(r2)
+	must equal r2.OverLaps(r1)
+
+	CalculateArea() - Reports negative area with 
+	points that have negative values. 
+
+	Expand() - Due to mentioned constructor error, 
+	doesn't expand correctly sometimes. 
+
+	Shrink() - Due to mentioned constructor error, 
+	doesn't shrink correctly sometimes. 
 */
 
 #include "Rectangle.h"
