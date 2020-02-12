@@ -35,7 +35,7 @@ public:
   // between p1.x and p2.x
   int GetWidth();
   // get the height of the rectangle
-  // between p2.y and p2.y
+  // between p1.y and p2.y
   int GetHeight();
 
   Point get_p1() { return p1_; }
