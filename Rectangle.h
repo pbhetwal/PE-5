@@ -1,3 +1,11 @@
+/**
+Parikshit Bhetwal
+Dennis Lim 
+PE 5
+This is the header file for 
+programming exercise five.  
+*/
+
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 
