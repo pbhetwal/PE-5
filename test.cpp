@@ -136,8 +136,8 @@ TEST_CASE("Rectangle expand", "[rectangle-expand]") {
 // Tests the Shrink() method 
 TEST_CASE("Rectangle shrink", "[rectangle-shrink]") {
 	Point p1 = {
-		.x = 1, 
-		.y = 1
+		.x = 5, 
+		.y = 5
 	}; 
 
 	Point p2 = {
