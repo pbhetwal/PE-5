@@ -134,7 +134,6 @@ TEST_CASE("Rectangle expand", "[rectangle-expand]") {
 
 
 // Tests the Shrink() method 
-// NOTE: this method originally fails with the given Rectangle.o 
 TEST_CASE("Rectangle shrink", "[rectangle-shrink]") {
 	Point p1 = {
 		.x = 1, 
@@ -147,7 +146,7 @@ TEST_CASE("Rectangle shrink", "[rectangle-shrink]") {
 	};
 
 	Rectangle r1(p1, p2); 
-	r1.Expand(); 
+	r1.Shrink(); 
 
 	// Moves the bottom left coordinate up one and to the right one
 	// p1 is bottom left
