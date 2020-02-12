@@ -30,8 +30,6 @@ TEST_CASE("Rectangle class constructor", "[rectangle-constructor]") {
 		.y = 2
 	};
 
-	
-
 	Rectangle r1(p1, p2);  
 	Rectangle r2(p2, p1); 
 
@@ -41,7 +39,6 @@ TEST_CASE("Rectangle class constructor", "[rectangle-constructor]") {
 	
 	REQUIRE((r2.get_p1().x == 0 && r2.get_p1().y == 0
 			 && r2.get_p2().x == 2 && r2.get_p2().y == 2));
-
 }
 
 // Tests the GetWidth() method 
@@ -56,6 +53,7 @@ TEST_CASE("Rectangle get width", "[rectangle-width]") {
 		.x = -30000, 
 		.y = 10000
 	};
+
 	Rectangle r1(p1, p2); 
 	REQUIRE(r1.GetWidth() == 30001); 
 }
@@ -72,6 +70,7 @@ TEST_CASE("Rectangle get height", "[rectangle-height]") {
 		.x = -3, 
 		.y = -100
 	};
+
 	Rectangle r1(p1, p2); 
 	REQUIRE(r1.GetHeight() == 101); 
 }
@@ -102,6 +101,7 @@ TEST_CASE("Rectangle overlaps", "[rectangle-overlaps]") {
 	Rectangle r1(p2, p3); 
 	Rectangle r2(p1, p3); 
 	Rectangle r3(p1, p4); 
+
 	REQUIRE(r1.Overlaps(r2) == true); 
 	REQUIRE(r2.Overlaps(r1) == true); 
 	REQUIRE(r1.Overlaps(r3) == false); 
@@ -120,6 +120,7 @@ TEST_CASE("Rectangle calculate area", "[rectangle-calculatearea]") {
 		.x = -3, 
 		.y = 4
 	};
+
 	Rectangle r1(p1, p2); 
 	// We could use: REQUIRE(r1.CalculateArea() == r1.GetWidth() * r1.GetHeight())
 	// but that would rely on other methods, we only want to test this method 
@@ -173,6 +174,4 @@ TEST_CASE("Rectangle shrink", "[rectangle-shrink]") {
 	// Moves the upper right coordinate down one and to the left one
 	// p2 is upper right 
 	REQUIRE((r1.get_p2().x == 1 && r1.get_p2().y == 1));
-
-
 }
