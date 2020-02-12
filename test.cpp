@@ -18,6 +18,7 @@ TEST_CASE ("Factorials are computed", "[factorial]") {
 }
 
 // Tests the Rectangle() constructor 
+// NOTE: second require does not pass 
 TEST_CASE("Rectangle class constructor", "[rectangle-constructor]") {
 	Point p1 = {
 		.x = 0, 
@@ -44,7 +45,7 @@ TEST_CASE("Rectangle class constructor", "[rectangle-constructor]") {
 }
 
 // Tests the GetWidth() method 
-// NOTE: second require doesn't pass
+// NOTE: require doesn't pass
 TEST_CASE("Rectangle get width", "[rectangle-width]") {
 	Point p1 = {
 		.x = 1, 
@@ -53,15 +54,14 @@ TEST_CASE("Rectangle get width", "[rectangle-width]") {
 
 	Point p2 = {
 		.x = -30000, 
-		.y = -10000
+		.y = 10000
 	};
 	Rectangle r1(p1, p2); 
-	REQUIRE(r1.GetWidth() == p2.x - p1.x); 
-	REQUIRE(r1.GetWidth() == p1.x - p2.x); 
+	REQUIRE(r1.GetWidth() == 30001); 
 }
 
 // Tests the GetHeight() method 
-// NOTE: second require doesn't pass 
+// NOTE: require doesn't pass 
 TEST_CASE("Rectangle get height", "[rectangle-height]") {
 	Point p1 = {
 		.x = 1, 
@@ -73,12 +73,11 @@ TEST_CASE("Rectangle get height", "[rectangle-height]") {
 		.y = -100
 	};
 	Rectangle r1(p1, p2); 
-	REQUIRE(r1.GetHeight() == p2.y - p1.y); 
-	REQUIRE(r1.GetHeight() == p1.y - p2.y); 
+	REQUIRE(r1.GetHeight() == 101); 
 }
 
 // Tests the Overlaps() method 
-// NOTE: first require originally doesn't pass 
+// NOTE: second require originally doesn't pass 
 TEST_CASE("Rectangle overlaps", "[rectangle-overlaps]") {
 	Point p1 = {
 		.x = 1, 
@@ -102,7 +101,7 @@ TEST_CASE("Rectangle overlaps", "[rectangle-overlaps]") {
 
 	Rectangle r1(p2, p3); 
 	Rectangle r2(p1, p3); 
-	Rectangle r3(p2, p3); 
+	Rectangle r3(p1, p4); 
 	REQUIRE(r1.Overlaps(r2) == true); 
 	REQUIRE(r2.Overlaps(r1) == true); 
 	REQUIRE(r1.Overlaps(r3) == false); 
@@ -128,7 +127,7 @@ TEST_CASE("Rectangle calculate area", "[rectangle-calculatearea]") {
 }
 
 // Tests the Expand() method
-// NOTE: the require originally fails 
+// NOTE: the requires originally fail 
 TEST_CASE("Rectangle expand", "[rectangle-expand]") {
 	Point p1 = {
 		.x = 2, 
@@ -145,15 +144,15 @@ TEST_CASE("Rectangle expand", "[rectangle-expand]") {
 
 	// Moves the upper right coordinate up one and to the right one
 	// p1 is bottom left
-	REQUIRE((r1.get_p1().x == 3 && r1.get_p1().y == 3));
+	REQUIRE((r1.get_p2().x == 3 && r1.get_p2().y == 3));
 	// Moves the bottom left coordinate down one and to the left one
 	// p2 is upper right 
-	REQUIRE((r1.get_p2().x == -1 && r1.get_p2().y == -1)); 
+	REQUIRE((r1.get_p1().x == -1 && r1.get_p1().y == -1)); 
 }
 
 
 // Tests the Shrink() method 
-// NOTE: the require originally fails 
+// NOTE: the requires originally fail
 TEST_CASE("Rectangle shrink", "[rectangle-shrink]") {
 	Point p1 = {
 		.x = 2, 

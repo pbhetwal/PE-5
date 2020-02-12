@@ -14,7 +14,7 @@ CXXGDB = -ggdb
 all: test
 # make clean
 clean:
-	rm test # Rectangle.o (because you can't recompile this one!)
+	rm test Rectangle.o
 # make test
 test: Rectangle.o test.cpp
 	$(CXX) $(CXXFLAGS) test.cpp Rectangle.o -o test
@@ -22,5 +22,5 @@ test: Rectangle.o test.cpp
 cov: Rectangle.o test.cpp
 	$(CXX) $(CXXFLAGS) $(CXXTESTFLAGS) test.cpp Rectangle.o -o test
 
-#Rectangle.o: Rectangle.cpp
-#	$(CXX) $(CXXFLAGS) -c Rectangle.cpp
+Rectangle.o: Rectangle.cpp
+	$(CXX) $(CXXFLAGS) -c Rectangle.cpp
