@@ -127,6 +127,22 @@ TEST_CASE("Rectangle calculate area", "[rectangle-calculatearea]") {
 	REQUIRE(r1.CalculateArea() == 8); 
 }
 
+// Test the area
+TEST_CASE("Rec calculate area", "[rec-calculatearea]"){
+	Point p1 = {
+		.x = 3,
+		.y = 3
+	};
+
+	Point p2 = {
+		.x = 8,
+		.y = 8
+	};
+
+	Rectangle r(p1, p2); 
+	REQUIRE(r.CalculateArea() == 25); 
+}
+
 // Tests the Expand() method
 // NOTE: the requires originally fail 
 TEST_CASE("Rectangle expand", "[rectangle-expand]") {
@@ -149,7 +165,14 @@ TEST_CASE("Rectangle expand", "[rectangle-expand]") {
 	// Moves the bottom left coordinate down one and to the left one
 	// p2 is upper right 
 	REQUIRE((r1.get_p1().x == -1 && r1.get_p1().y == -1)); 
+
+	// expanding the rectangle again, and same logic above should happen
+	r1.Expand();
+	REQUIRE((r1.get_p2().x == 4 && r1.get_p2().y == 4));
+	REQUIRE((r1.get_p1().x == -2 && r1.get_p1().y == -2)); 
+
 }
+
 
 
 // Tests the Shrink() method 
@@ -175,3 +198,5 @@ TEST_CASE("Rectangle shrink", "[rectangle-shrink]") {
 	// p2 is upper right 
 	REQUIRE((r1.get_p2().x == 1 && r1.get_p2().y == 1));
 }
+
+
