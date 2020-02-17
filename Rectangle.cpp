@@ -36,6 +36,7 @@ programming exercise five.
 
 #include "Rectangle.h"
 #include <cstdlib>
+#include <algorithm> 
 
 /**
 	Calculates factorial of number. 
@@ -91,22 +92,8 @@ bool Rectangle::Overlaps(Rectangle& other) {
 	Point o_p1_ = other.get_p1();
 	Point o_p2_ = other.get_p2();
 
-	if(p1_.x == o_p1_.x && p1_.y == o_p1_.y) {
-		return true; 
-	}
-
-	else if(p1_.x == o_p2_.x && p1_.y == o_p2_.y) {
-		return true; 
-	}
-
-	else if(p2_.x == o_p1_.x && p2_.y == o_p1_.y) {
-		return true; 
-	}
-
-	else if(p2_.x == o_p2_.x && p2_.y == o_p2_.y) {
-		return true; 
-	}
-	return false; 
+    return (std::min(p2_.x, o_p2_.x) >= std::max(p1_.x, o_p1_.x)
+            && std::min(p2_.y, o_p2_.y) >= std::max(p1_.y, o_p1_.y)); 
 }
 
 /**
@@ -133,9 +120,11 @@ void Rectangle::Expand() {
 	Shrinks this Rectangle.
 */
 void Rectangle::Shrink() {
-	p1_.x++; 
-	p1_.y++; 
+	if(CalculateArea() > 0) {
+		p1_.x++; 
+		p1_.y++; 
 
-	p2_.x--; 
-	p2_.y--;
+		p2_.x--; 
+		p2_.y--;
+	}
 }
