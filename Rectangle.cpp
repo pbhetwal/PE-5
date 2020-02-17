@@ -95,8 +95,8 @@ bool Rectangle::Overlaps(Rectangle& other) {
 	Point o_p1_ = other.get_p1();
 	Point o_p2_ = other.get_p2();
 
-    return (std::min(p2_.x, o_p2_.x) >= std::max(p1_.x, o_p1_.x)
-            && std::min(p2_.y, o_p2_.y) >= std::max(p1_.y, o_p1_.y)); 
+	return (std::min(p2_.x, o_p2_.x) >= std::max(p1_.x, o_p1_.x)
+			&& std::min(p2_.y, o_p2_.y) >= std::max(p1_.y, o_p1_.y)); 
 }
 
 /**
