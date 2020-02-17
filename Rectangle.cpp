@@ -22,7 +22,9 @@ programming exercise five.
 	Overlaps() - Doesn't report true if 
 	overlapping method call is switched for two 
 	overlapping objects. Ex) r1.OverLaps(r2)
-	must equal r2.OverLaps(r1)
+	must equal r2.OverLaps(r1). Also, didn't 
+	report overlapping if there was a shared 
+	point. 
 
 	CalculateArea() - Reports negative area with 
 	points that have negative values. 
@@ -31,11 +33,13 @@ programming exercise five.
 	doesn't expand correctly sometimes. 
 
 	Shrink() - Due to mentioned constructor error, 
-	doesn't shrink correctly sometimes. 
+	doesn't shrink correctly sometimes. Would allow 
+	shrinking of objects with 0 area. 
 */
 
 #include "Rectangle.h"
 #include <cstdlib>
+#include <algorithm> 
 
 /**
 	Calculates factorial of number. 
@@ -91,22 +95,8 @@ bool Rectangle::Overlaps(Rectangle& other) {
 	Point o_p1_ = other.get_p1();
 	Point o_p2_ = other.get_p2();
 
-	if(p1_.x == o_p1_.x && p1_.y == o_p1_.y) {
-		return true; 
-	}
-
-	else if(p1_.x == o_p2_.x && p1_.y == o_p2_.y) {
-		return true; 
-	}
-
-	else if(p2_.x == o_p1_.x && p2_.y == o_p1_.y) {
-		return true; 
-	}
-
-	else if(p2_.x == o_p2_.x && p2_.y == o_p2_.y) {
-		return true; 
-	}
-	return false; 
+    return (std::min(p2_.x, o_p2_.x) >= std::max(p1_.x, o_p1_.x)
+            && std::min(p2_.y, o_p2_.y) >= std::max(p1_.y, o_p1_.y)); 
 }
 
 /**
@@ -133,9 +123,11 @@ void Rectangle::Expand() {
 	Shrinks this Rectangle.
 */
 void Rectangle::Shrink() {
-	p1_.x++; 
-	p1_.y++; 
+	if(CalculateArea() > 0) {
+		p1_.x++; 
+		p1_.y++; 
 
-	p2_.x--; 
-	p2_.y--;
+		p2_.x--; 
+		p2_.y--;
+	}
 }

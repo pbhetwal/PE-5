@@ -98,14 +98,27 @@ TEST_CASE("Rectangle overlaps", "[rectangle-overlaps]") {
 		.y = -3
 	};
 
+	Point p5 = {
+		.x = -1, 
+		.y = -1
+	};
+
+	Point p6 = {
+		.x = 0, 
+		.y = 0
+	};
+
 	Rectangle r1(p2, p3); 
 	Rectangle r2(p1, p3); 
 	Rectangle r3(p1, p4); 
+	Rectangle r4(p6, p1);
+	Rectangle r5(p5, p6);
 
 	REQUIRE(r1.Overlaps(r2) == true); 
 	REQUIRE(r2.Overlaps(r1) == true); 
 	REQUIRE(r1.Overlaps(r3) == false); 
 	REQUIRE(r3.Overlaps(r1) == false);
+	REQUIRE(r5.Overlaps(r4) == true); 
 }
 
 // Tests the CalculateArea() method 
