@@ -22,7 +22,9 @@ programming exercise five.
 	Overlaps() - Doesn't report true if 
 	overlapping method call is switched for two 
 	overlapping objects. Ex) r1.OverLaps(r2)
-	must equal r2.OverLaps(r1)
+	must equal r2.OverLaps(r1). Also, didn't 
+	report overlapping if there was a shared 
+	point. 
 
 	CalculateArea() - Reports negative area with 
 	points that have negative values. 
@@ -31,7 +33,8 @@ programming exercise five.
 	doesn't expand correctly sometimes. 
 
 	Shrink() - Due to mentioned constructor error, 
-	doesn't shrink correctly sometimes. 
+	doesn't shrink correctly sometimes. Would allow 
+	shrinking of objects with 0 area. 
 */
 
 #include "Rectangle.h"
